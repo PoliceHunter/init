@@ -1,0 +1,4 @@
+RSA keys are stored in "~/.ssh/authorized_keys"
+
+This directory is created after connecting ssh.
+Initially they do not exist.

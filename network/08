@@ -1,0 +1,3 @@
+The first step we need to find IP adress of slash16.org.
+("host slash16.org" or "nslookup slash16.org")
+The next we can use "whois 'IP'" to find out rhe provider by IP adress.

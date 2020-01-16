@@ -1,0 +1,2 @@
+ifconfig en0 | grep "inet " | rev | awk '{print $1}' | rev 
+arp -a | awk '{print$2}' | cut -f 1 -d ')' | rev | cut -f 1 -d '(' | rev

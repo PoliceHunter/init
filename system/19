@@ -1,0 +1,1 @@
+sytemctl list-units --type service --all

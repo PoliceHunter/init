@@ -1,0 +1,5 @@
+Before use command traceroute slash16.org we getting next ip adresses:
+
+1 line - LOC IP
+2 line - NAT IP
+3 line - Public IP

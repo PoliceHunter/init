@@ -1,0 +1,26 @@
+#!/bin/bash
+
+USER=$(awk -F : '$3 >= 1000 && $3 < 60000 && $1 != "nobody" {print $1}'  /etc/passwd)
+echo -e "\e[96mDo you want to delete or add a user to the sudo?"
+echo -e "\e[96mEnter \e[31m\e[1m'del' \e[0m\e[96mor \e[31m\e[1m'add' " 
+read -p $'\e[0m' COMMAND
+echo -e "\e[96mWhich of the active users to give/delete access to the sudo?"
+echo $USER
+read -p $'\e[0m' USERNAME
+echo -e "\e[96m "
+del="del"
+add="add"
+VALID=$(cat /etc/passwd | grep $USERNAME)
+if [ "$VALID" != "$NULL" ]; then
+	if [[ "$COMMAND" == "$add" ]]; then
+		sudo adduser $USERNAME sudo
+		echo -e "\e[92mAccess granted"
+	elif [[ "$COMMAND" == "$del" ]]; then
+		sudo deluser $USERNAME sudo
+		echo -e "\e[91mAccess removed"
+	fi
+else
+	echo -e "\e[93mUser is not found"
+fi
+echo -e "\e[96mCurrent sudoers : \e[32m "
+getent group sudo

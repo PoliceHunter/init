@@ -1,0 +1,2 @@
+You need to exit thr graphical shell, if you are in it, then log in under thr desired user and connect via ssh ("ssh <user>@<ip(host)>")
+Or you can use ("su <usename>") to change user
